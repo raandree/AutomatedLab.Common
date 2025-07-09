@@ -1,15 +1,10 @@
-
-
-Remove-Module $ENV:BHProjectName -ErrorAction SilentlyContinue -Force
-Import-Module (Join-Path -Path $env:BHBuildOutput -ChildPath AutomatedLab.Common\AutomatedLab.Common.psd1) -Force
-    
 BeforeDiscovery {
     $testDataGood = @(
         @{Value = 'Test'; Result = 'Test 0' }
         @{Value = 'Test 665' ; Result = 'Test 666' }
         @{Value = 'Test -10' ; Result = 'Test -10 0' }
     )
-    $testDataBad = @(    
+    $testDataBad = @(
         @{Value = "Test $([int64]::MaxValue)" ; Result = 'nA' }
     )
 }
