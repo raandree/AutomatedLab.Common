@@ -45,7 +45,7 @@ task PublishLibrary {
     $outputPath = Join-Path -Path $BuildModuleOutput -ChildPath $ProjectName
     $outputPath = Join-Path -Path $outputPath -ChildPath $version
 
-    $projectPath = Join-Path $ProjectPath -ChildPath 'Library\Library.csproj' -Resolve -ErrorAction Stop
+    $projectPath = Join-Path $SourcePath -ChildPath 'library\Library.csproj' -Resolve -ErrorAction Stop
 
     $outputPath60 = Join-Path -Path $outputPath -ChildPath \lib\core
     dotnet build $projectPath -f net6.0 -o $outputPath60
