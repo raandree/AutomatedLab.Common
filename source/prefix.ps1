@@ -31,5 +31,5 @@ try
 }
 catch
 {
-
+    Write-Warning -Message "Unable to add AutomatedLab.Common.dll - GPO and PKI functionality might be impaired.`r`nException was: $($_.Exception.Message), $($_.Exception.LoaderExceptions)"
 }
