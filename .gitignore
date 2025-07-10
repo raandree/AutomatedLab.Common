@@ -1,5 +1,8 @@
 output/
 
+Library/bin
+Library/obj
+
 **.bak
 *.local.*
 !**/README.md
