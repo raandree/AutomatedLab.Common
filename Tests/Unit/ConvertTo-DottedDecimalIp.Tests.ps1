@@ -1,7 +1,5 @@
 
-Remove-Module $ENV:BHProjectName -ErrorAction SilentlyContinue -Force
-Import-Module (Join-Path -Path $env:BHBuildOutput -ChildPath AutomatedLab.Common\AutomatedLab.Common.psd1) -Force
-    
+
 BeforeDiscovery {
     $goodTests = @(
         @{ InputData = '3232236033'; Result = '192.168.2.1' }

@@ -1,7 +1,5 @@
 
-Remove-Module $ENV:BHProjectName -ErrorAction SilentlyContinue -Force
-Import-Module (Join-Path -Path $env:BHBuildOutput -ChildPath AutomatedLab.Common\AutomatedLab.Common.psd1) -Force
-    
+
 BeforeDiscovery {
     $goodTests = @(
         @{ InputData = '2.1.32.23'; Result = '33628183' }
@@ -17,7 +15,7 @@ BeforeDiscovery {
 Describe "ConvertTo-DecimalIp" {
 
     Context "Valid IP" {
-            
+
         It "Should return a binary dotted IP" -TestCases $goodTests {
             ConvertTo-DecimalIP -IPAddress $InputData | Should -BeExactly $Result
         }

@@ -1,7 +1,5 @@
 
-Remove-Module $ENV:BHProjectName -ErrorAction SilentlyContinue -Force
-Import-Module (Join-Path -Path $env:BHBuildOutput -ChildPath AutomatedLab.Common\AutomatedLab.Common.psd1) -Force
-    
+
 BeforeDiscovery {
     $testDataArrays = @(
         @{
@@ -20,7 +18,7 @@ BeforeDiscovery {
 
 
     Describe "Get-FullMesh" {
-        
+
         Context 'Two-way' {
             It 'Should return a full mesh on arrays' -TestCases $testDataArrays {
                 ((Get-FullMesh -List $InputData).Source | Sort-Object) | Should -Be $ResultTwoWay

@@ -1,13 +1,11 @@
 
 
-Remove-Module $ENV:BHProjectName -ErrorAction SilentlyContinue -Force
-Import-Module (Join-Path -Path $env:BHBuildOutput -ChildPath AutomatedLab.Common\AutomatedLab.Common.psd1) -Force
-    
+
 BeforeDiscovery {
-    
+
     $testValid = @(
-        @{ Mask = '255.255.252.0'; Length = 22 }        
-        @{ Mask = '255.0.0.0'; Length = 8 }        
+        @{ Mask = '255.255.252.0'; Length = 22 }
+        @{ Mask = '255.0.0.0'; Length = 8 }
         @{ Mask = '255.255.0.0'; Length = 16 }
         @{ Mask = '255.255.255.254'; Length = 31 }
     )
@@ -18,7 +16,7 @@ BeforeDiscovery {
 }
 
 Describe "ConvertTo-Mask" {
-        
+
     Context "Valid data" {
         It "Should work" -TestCases $testValid {
             ConvertTo-Mask -MaskLength $Length | Should -BeExactly $Mask
@@ -33,5 +31,5 @@ Describe "ConvertTo-Mask" {
             { ConvertTo-Mask -MaskLength $Length } | Should -Throw
         }
     }
-    
+
 }
