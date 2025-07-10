@@ -1,7 +1,7 @@
 output/
 
-Library/bin
-Library/obj
+Library/bin/
+Library/obj/
 
 **.bak
 *.local.*
